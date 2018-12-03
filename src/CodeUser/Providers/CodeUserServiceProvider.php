@@ -20,7 +20,7 @@ class CodeUserServiceProvider extends ServiceProvider
         ], 'migrations');
         $this->publishes([__DIR__ . '/../../resources/views/auth' => base_path('resources/views/auth')
         ], 'auth');
-        $this->publishes([__DIR__ . '/../../resources/views/auth/emails' => base_path('resources/views/email')
+        $this->publishes([__DIR__ . '/../../resources/views/email' => base_path('resources/views/email')
         ], 'email');
 
         $this->loadViewsFrom(__DIR__ . '/../../resources/views/codeuser', 'codeuser');

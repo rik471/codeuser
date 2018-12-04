@@ -3,7 +3,7 @@
 Route::group([
     'prefix' => 'admin/users',
     'as' => 'admin.users.',
-    'namespace' => '\CodePress\CodeUsers\Controllers',
+    'namespace' => '\CodePress\CodeUser\Controllers',
     'middleware' => ['web']], function () {
 
     Route::get('/', ['uses' => 'Admin\UsersController@index',  'as' => 'index']);

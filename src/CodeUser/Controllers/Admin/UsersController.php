@@ -12,7 +12,7 @@ class UsersController extends Controller
     private $repository;
     private $response;
 
-    public function __construct(ResponseFactory $response, PostRepositoryInterface $repository)
+    public function __construct(ResponseFactory $response, UserRepositoryInterface $repository)
     {
         $this->response = $response;
         $this->repository = $repository;

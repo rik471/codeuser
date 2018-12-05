@@ -4,7 +4,8 @@ Route::group([
     'prefix' => 'admin/users',
     'as' => 'admin.users.',
     'namespace' => '\CodePress\CodeUser\Controllers',
-    'middleware' => ['web']], function () {
+    'middleware' => ['web', 'auth']
+], function () {
 
     Route::get('/', ['uses' => 'Admin\UsersController@index',  'as' => 'index']);
     Route::get('/create', ['uses' => 'Admin\UsersController@create', 'as' => 'create']);

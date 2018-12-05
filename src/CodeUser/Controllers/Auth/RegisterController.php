@@ -2,7 +2,7 @@
 
 namespace CodePress\CodeUser\Controllers\Auth;
 use CodePress\CodeUser\Models\User;
-use Validator;
+use Illuminate\Validation\Validator;
 use CodePress\CodeUser\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 class RegisterController extends Controller

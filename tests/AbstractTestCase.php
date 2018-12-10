@@ -1,17 +1,19 @@
 <?php
+
 namespace CodePress\CodeUser\Tests;
 
-use App\Providers\AuthServiceProvider;
+use CodePress\CodeUser\Providers\CodeUserServiceProvider;
+use CodePress\CodeUser\Providers\EventServiceProvider;
+use Illuminate\Auth\AuthServiceProvider;
 use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 abstract class AbstractTestCase extends TestCase
 {
-
     public function migrate()
     {
-        $this->artisan('migrate', [
-            '--path' => '../../../../src/resources/migrations'
+        $this->artisan('migrate',[
+            '--realpath' => realpath(__DIR__ . '/../src/resources/migrations')
         ]);
     }
 
@@ -19,7 +21,9 @@ abstract class AbstractTestCase extends TestCase
     {
         return [
             AuthServiceProvider::class,
-            PasswordResetServiceProvider::class
+            PasswordResetServiceProvider::class,
+            EventServiceProvider::class,
+            CodeUserServiceProvider::class
         ];
     }
 
@@ -31,14 +35,14 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function getEnvironmentSetUp($app)
     {
+        // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver' => 'sqlite',
+            'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix' => '',
+            'prefix'   => '',
         ]);
 
-        config(['auth' => require __DIR__ .  '/../src/config/auth.php']);
-
+        config(['auth' => require __DIR__ . '/../src/config/auth.php']);
     }
 }

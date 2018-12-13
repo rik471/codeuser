@@ -1,10 +1,18 @@
 <?php
 namespace CodePress\CodeUser\Providers;
 
+use CodePress\CodeUser\Repository\PermissionRepositoryEloquent;
+use CodePress\CodeUser\Repository\PermissionRepositoryInterface;
+
+use CodePress\CodeUser\Repository\RoleRepositoryInterface;
+use CodePress\CodeUser\Repository\RoleRepositoryEloquent;
+
 use CodePress\CodeUser\Repository\UserRepositoryEloquent;
 use CodePress\CodeUser\Repository\UserRepositoryInterface;
+
 use CodePress\CodeUser\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use CodePress\CodeUser\Providers\AuthServiceProvider;
 
 class CodeUserServiceProvider extends ServiceProvider
 {
@@ -25,13 +33,25 @@ class CodeUserServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../resources/views/codeuser', 'codeuser');
         require __DIR__ .'/../routes.php';
     }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+
     public function register()
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepositoryEloquent::class);
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepositoryEloquent::class);
+        $this->app->bind(PermissionRepositoryInterface::class, PermissionRepositoryEloquent::class);
+
 
         $this->app->singleton('codepress_user_route', function () {
             return new Router();
         });
 
+        $this->app->register(EventServiceProvider::class);
+        $this->app->register(AuthServiceProvider::class);
     }
 }

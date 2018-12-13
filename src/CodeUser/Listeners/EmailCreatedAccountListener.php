@@ -25,13 +25,12 @@ class EmailCreatedAccountListener
     {
         $user = $event->getUser();
         $plainPassword = $event->getPlainPassword();
-
-        return $this->mailer->send('email.registration', [
+        return $this->mailer->send('email.registration',[
             'username' => $user->email,
             'password' => $plainPassword
-        ], function ($message) use ($user) {
+        ], function ($message) use($user){
             $message->to($user->email, $user->name)
-                ->subject("$user->name", "sua conta foi criada com sucesso!");
+                ->subject("{$user->name}, sua conta foi criada!");
         });
     }
 }

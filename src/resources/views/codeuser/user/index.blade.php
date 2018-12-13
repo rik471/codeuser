@@ -13,6 +13,7 @@
             <tr>
                 <th>ID</th>
                 <th>E-mail</th>
+                <th>Name</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -20,9 +21,10 @@
                 @foreach($users as $key => $user)
                     <tr>
                         <td>{{$user->id}}</td>
-                        <td>{{$user->title}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
                         <td>
-                            <a name="link_edit_post_{{$key}}" href="{{route('admin.user.edit', ['id'=>$user->id])}}">
+                            <a name="link_edit_user_{{$key}}" href="{{route('admin.users.edit', ['id'=>$user->id])}}">
                                 Edit
                             </a>
                         </td>

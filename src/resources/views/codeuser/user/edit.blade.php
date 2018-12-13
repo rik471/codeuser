@@ -10,18 +10,20 @@
         {!! Form::open(['method'=>'put','route' => [ 'admin.users.update', 'id' => $user->id ]]) !!}
 
         <div class="form-group">
-            {!! Form::label('email',"E-mail:") !!}
-            {!! Form::text('email',  $post->title, ['class'=>'form-control']) !!}
+            {!! Form::label('name', "Name:") !!}
+            {!! Form::text('name', null, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('Username',"username:") !!}
-            {!! Form::textarea('username', null, ['class'=>'form-control'])!!}
+            {!! Form::label('Email', "E-mail:") !!}
+            {!! Form::text('email', null, ['class'=>'form-control']) !!}
         </div>
 
+
         <div class="form-group">
-            {!! Form::label('password', "Password:") !!}
-            {!! Form::text('password', null, ['class'=>'form-control']) !!}
+            {!! Form::label('roles[]', "Roles:") !!}
+            {!! Form::select('roles[]', $roles, $user->roles->lists('id')->toArray(),
+                ['class'=>'form-control', 'multiple' => 'multiple']) !!}
         </div>
 
         <div class="form-group">

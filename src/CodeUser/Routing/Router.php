@@ -17,9 +17,9 @@ class Router
             Route::get('logout', "$namespace\\Auth\\AuthController@logout");
 
             // Password Reset Routes...
-            Route::get('password/reset/{token?}', "$namespace\\Auth\\PasswordController@showResetForm");
+            Route::get('password/reset/{token}', "$namespace\\Auth\\PasswordController@showResetForm");
             Route::post('password/email', "$namespace\\Auth\\PasswordController@sendResetLinkEmail");
-            Route::post('password/reset', "$namespace\\Auth\\PasswordController@reset");
+            Route::post('password/reset/', "$namespace\\Auth\\PasswordController@reset");
         });
 
     }

@@ -31,7 +31,7 @@ class User extends Authenticatable implements Authorizable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'codepress_users_role','user_id', 'role_id');
+        return $this->belongsToMany(Role::class, 'codepress_users_roles','user_id', 'role_id');
     }
 
     public function hasRole($role)

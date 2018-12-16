@@ -3,13 +3,14 @@
 namespace CodePress\CodeUser\Tests;
 
 use CodePress\CodeUser\Event\UserCreatedEvent;
-use CodePress\CodeUser\Listener\EmailCreatedAccountListener;
+use CodePress\CodeUser\Listeners\EmailCreatedAccountListener;
 use CodePress\CodeUser\Models\User;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 use Mockery as m;
 
-class EmailCreatedAccountListenerTest extends AbstractTestCase{
+class EmailCreatedAccountListenerTest extends AbstractTestCase
+{
 
     public function setUp()
     {

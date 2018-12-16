@@ -32,25 +32,25 @@ class AuthorizationTest extends AbstractTestCase
     {
         $this->createUser();
         $this->createRoles();
-        $this->assertCount(3, $this->app->make(RoleRepositoryInterface::class)->all());
-        $this->app->make(UserRepositoryInterface::class)->addRoles(1,[1, 2, 3]);
-        $this->assertCount(3, User::find(1)->roles);
-        $this->assertCount(1, Role::find(1)->users);
-        $this->assertTrue(User::find(1)->isAdmin());
+        $this->assertCount(6, $this->app->make(RoleRepositoryInterface::class)->all());
+        $this->app->make(UserRepositoryInterface::class)->addRoles(2,[4, 5, 6]);
+        $this->assertCount(4, User::find(2)->roles);
+        $this->assertCount(1, Role::find(4)->users);
+        $this->assertTrue(User::find(2)->isAdmin());
     }
 
     public function test_can_create_permission()
     {
         $this->createRoles();
         $this->createPermissions();
-        $this->assertCount(3, $this->app->make(RoleRepositoryInterface::class)->all());
-        $this->app->make(UserRepositoryInterface::class)->addRoles(1,[1, 2]);
-        $this->app->make(UserRepositoryInterface::class)->addRoles(2,[1]);
-        $this->app->make(UserRepositoryInterface::class)->addRoles(3,[1, 2, 3]);
-        $this->assertCount(1, Role::find(2)->permissions);
-        $this->assertCount(2, Role::find(1)->permissions);
-        $this->assertCount(3, Role::find(3)->permissions);
-        $this->assertCount(3, Permission::find(1)->roles);
+        $this->assertCount(6, $this->app->make(RoleRepositoryInterface::class)->all());
+        $this->app->make(UserRepositoryInterface::class)->addRoles(4, [8, 7]);
+        $this->app->make(UserRepositoryInterface::class)->addRoles(5,[8]);
+        $this->app->make(UserRepositoryInterface::class)->addRoles(6,[9, 10, 11]);
+        $this->assertCount(1, Role::find(5)->permissions);
+        $this->assertCount(2, Role::find(4)->permissions);
+        $this->assertCount(3, Role::find(6)->permissions);
+        $this->assertCount(3, Permission::find(6)->roles);
     }
 
     protected function createUser()

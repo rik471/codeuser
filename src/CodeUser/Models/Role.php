@@ -54,7 +54,7 @@ class Role extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'codepress_user_roles', 'role_id', 'user_id');
+        return $this->belongsToMany(User::class, 'codepress_users_roles', 'role_id', 'user_id');
     }
 
     public function permissions()

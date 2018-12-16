@@ -13,11 +13,17 @@ class UsersController extends Controller
     private $repository;
     private $response;
 
+    /**
+     * @param RoleRepositoryInterface $roleRepository
+     */
+    private $roleRepository;
+
     public function __construct(
         ResponseFactory $response,
         UserRepositoryInterface $repository,
         RoleRepositoryInterface $roleRepository
     ){
+        $this->authorize('access_users');
         $this->response = $response;
         $this->repository = $repository;
         $this->roleRepository = $roleRepository;

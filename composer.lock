@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d43435cb9666541327422e5c8caa9d7",
+    "content-hash": "cef5cbba3c413115a7d5d05826006d4a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -113,12 +113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rik471/codeuser.git",
-                "reference": "899ad54a0529fb9686730b2f66baefaa79dc8249"
+                "reference": "b60089fe73c5fef026086ce869817a033c2bcf06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rik471/codeuser/zipball/899ad54a0529fb9686730b2f66baefaa79dc8249",
-                "reference": "899ad54a0529fb9686730b2f66baefaa79dc8249",
+                "url": "https://api.github.com/repos/rik471/codeuser/zipball/b60089fe73c5fef026086ce869817a033c2bcf06",
+                "reference": "b60089fe73c5fef026086ce869817a033c2bcf06",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
             "require-dev": {
                 "mockery/mockery": "~0.9.2",
                 "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~5.0"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -140,7 +140,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-12-16T01:25:48+00:00"
+            "time": "2018-12-16T01:36:10+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3402,7 +3402,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=7"
     },
     "platform-dev": []
 }

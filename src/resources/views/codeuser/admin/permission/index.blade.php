@@ -14,7 +14,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($permissions as $key => $user)
+                @foreach($permissions as $key => $permission)
                     <tr>
                         <td>{{$permission->id}}</td>
                         <td>{{$permission->name}}</td>

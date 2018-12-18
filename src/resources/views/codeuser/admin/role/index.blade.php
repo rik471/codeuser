@@ -17,7 +17,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($roles as $key => $user)
+                @foreach($roles as $key => $role)
                     <tr>
                         <td>{{$role->id}}</td>
                         <td>{{$role->name}}</td>
